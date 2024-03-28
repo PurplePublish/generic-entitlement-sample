@@ -1,0 +1,14 @@
+POST http://localhost:8080/v1/verify
+Content-Type: application/json
+
+{
+  "appId": "app1",
+  "deviceId": "device1",
+  "accessToken": "REPLACE WITH TOKEN FROM LOGIN"
+}
+
+> {%
+    client.test("Verify successful", function () {
+        client.assert(response.status === 200, "Response status is not 200");
+    });
+%}

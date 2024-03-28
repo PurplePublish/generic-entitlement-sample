@@ -1,0 +1,14 @@
+POST http://localhost:8080/v1/verify
+Content-Type: application/json
+
+{
+  "appId": "app1",
+  "deviceId": "device1",
+  "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnZW5lcmljLWVudGl0bGVtZW50LXNhbXBsZSIsInN1YiI6InVzZXJAZXhhbXBsZS5jb20iLCJleHAiOjE3MTIwNDQzMTJ9.nVKU9jQ4vhhiv2MHe3AC4GuLSh9AvfwSY6KNkbjrIpM"
+}
+
+> {%
+    client.test("Verify fails", function () {
+        client.assert(response.status === 403, "Response status is not 403");
+    });
+%}

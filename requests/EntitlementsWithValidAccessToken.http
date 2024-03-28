@@ -1,0 +1,8 @@
+GET http://localhost:8080/v1/entitlements?appId=app1&deviceId=device1&accessToken=REPLACE_WITH_TOKEN_FROM_LOGIN
+Content-Type: application/json
+
+> {%
+    client.test("Entitlements successful", function () {
+        client.assert(response.status === 200, "Response status is not 200");
+    });
+%}
